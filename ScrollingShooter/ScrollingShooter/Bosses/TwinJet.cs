@@ -78,7 +78,7 @@ namespace ScrollingShooter
         /// <summary>
         /// The Missile Fire Rate in the Damaged state
         /// </summary>
-        private const float DamagedMissileFireRate = 2f;
+        private const float DamagedMissileFireRate = 2.5f;
 
         /// <summary>
         /// The Gun Fire rate when the gun has been lost,
@@ -89,7 +89,7 @@ namespace ScrollingShooter
         /// <summary>
         /// The missile fire rate after the gun is lost
         /// </summary>
-        private const float GunLostMissileFireRate = 1f;
+        private const float GunLostMissileFireRate = 1.7f;
 
         /// <summary>
         /// The maximum health that the Jet can have
@@ -395,6 +395,9 @@ namespace ScrollingShooter
         {
             //Calls the onFrame method
             onFrame(elapsedTime);
+
+            //REMOVE
+            DOT(elapsedTime, 1);
         }
 
         /// <summary>
@@ -425,6 +428,19 @@ namespace ScrollingShooter
                 spriteBatch.Draw(_spriteSheet, gunSectionPosition, _spriteGunBounds[(int)_myGunState], Color.White, _myRotation, Vector2.Zero, SpriteScale, SpriteEffects.None, 0);
             }
 
+        }
+
+        //REMOVE
+        private float timerDOT = 0;
+        public void DOT(float elapsedTime, int interval)
+        {
+            timerDOT += elapsedTime;
+
+            if (timerDOT >= interval)
+            {
+                timerDOT = 0;
+                this.DamageMe(2);
+            }
         }
 
         #endregion

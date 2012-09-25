@@ -66,9 +66,11 @@ namespace ScrollingShooter
             tilemap = Content.Load<Tilemap>("Tilemaps/example");
             tilemap.Scrolling = true;
 
-            GameObjectManager.CreateEnemy(EnemyType.Dart, new Vector2(200, 200));
+            //GameObjectManager.CreateEnemy(EnemyType.Dart, new Vector2(200, 200));
 
-            GameObjectManager.CreateEnemy(EnemyType.JetMinion, new Vector2(100, 300));
+            //GameObjectManager.CreateEnemy(EnemyType.JetMinion, new Vector2(100, 300));
+
+            GameObjectManager.CreateBoss(BossType.TwinJetManager, Vector2.Zero);
         }
 
         /// <summary>
